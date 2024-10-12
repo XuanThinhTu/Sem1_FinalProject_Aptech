@@ -12,4 +12,9 @@ class Category extends Model
     protected $fillable = ['name', 'description'];
     // Nếu bạn không dùng `created_at` và `updated_at`, có thể tắt timestamps
     public $timestamps = false; // Nếu không muốn dùng created_at và updated_at
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

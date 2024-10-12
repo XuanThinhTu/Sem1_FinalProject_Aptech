@@ -63,3 +63,27 @@ Route::post('/admin/users/store', [UsersController::class, 'store'])->name('user
 Route::get('/admin/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
 Route::put('/admin/users/{id}', [UsersController::class, 'update'])->name('users.update');
 Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+
+// Auctions session
+// Route::get('/items-by-category/{id}', [AuctionsController::class, 'getItemsByCategory']);
+// Route::resource('auctions', AuctionsController::class);
+// Route cho hiển thị danh sách Auction
+Route::get('/admin/auctions', [AuctionsController::class, 'index'])->name('auctions.index');
+
+// Route cho form thêm Auction
+Route::get('/admin/auctions/create', [AuctionsController::class, 'create'])->name('auctions.create');
+
+// Route lưu thông tin Auction mới
+Route::post('/admin/auctions/store', [AuctionsController::class, 'store'])->name('auctions.store');
+
+// Route cho form chỉnh sửa Auction
+Route::get('/admin/auctions/{id}/edit', [AuctionsController::class, 'edit'])->name('auctions.edit');
+
+// Route cập nhật thông tin Auction
+Route::put('/admin/auctions/{id}', [AuctionsController::class, 'update'])->name('auctions.update');
+
+// Route xóa Auction
+Route::delete('/admin/auctions/{id}', [AuctionsController::class, 'destroy'])->name('auctions.destroy');
+
+// Route lấy các Items theo Category qua AJAX
+Route::get('/admin/items-by-category/{categoryId}', [AuctionsController::class, 'getItemsByCategory']);
