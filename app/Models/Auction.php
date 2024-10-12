@@ -9,11 +9,10 @@ class Auction extends Model
 {
     use HasFactory;
 
-    /**
-     * Các thuộc tính có thể thêm/sửa.
-     *
-     * @var array
-     */
+    // Chỉ định bảng 'auctions'
+    protected $table = 'auctions';
+
+    // Các cột có thể được thêm/sửa
     protected $fillable = [
         'item_id',
         'category_id',
@@ -25,10 +24,8 @@ class Auction extends Model
         'status',
     ];
 
-    /**
-     * Quan hệ với bảng Item.
-     * Mỗi phiên đấu giá (Auction) thuộc về một Item.
-     */
+
+    // Mối quan hệ: Một phiên đấu giá thuộc về một sản phẩm (Item)
     public function item()
     {
         return $this->belongsTo(Item::class);

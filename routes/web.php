@@ -19,7 +19,7 @@ Route::get('/homepage', [HomeController::class, 'index'])->name('homepage');
 Route::get('/auctionspage', [AuctionsController::class, 'index'])->name('auctionspage');
 Route::get('/categoriespage', [CategoriesController::class, 'index'])->name('categoriespage');
 Route::get('/galleriespage', [GalleriesController::class, 'index'])->name('galleriespage');
-Route::get('/detailspage', [DetailsController::class, 'index'])->name('detailspage');
+Route::get('/detailspage/item/{id}', [DetailsController::class, 'index'])->name('detailspage');
 
 
 Route::get('/dashboard', function () {

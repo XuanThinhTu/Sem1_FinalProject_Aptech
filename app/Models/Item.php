@@ -15,11 +15,13 @@ class Item extends Model
      * @var array
      */
     protected $fillable = [
+        'id'
         'title',
         'description',
         'starting_price',
         'category_id',
         'bid_count',
+        'image_path'
     ];
 
     /**
@@ -31,6 +33,7 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
+  
     /**
      * Quan hệ với bảng Bid.
      * Mỗi Item có nhiều lượt đặt giá (Bids).
@@ -47,5 +50,15 @@ class Item extends Model
     public function getBidCountAttribute()
     {
         return $this->bids()->sum('bid_amount');
+      
+    // Quan hệ với bảng User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function auction()
+    {
+        return $this->hasOne(Auction::class);
     }
 }
