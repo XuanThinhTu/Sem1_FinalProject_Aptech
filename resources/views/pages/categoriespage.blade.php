@@ -38,16 +38,25 @@
                             <a href="{{ route('detailspage', ['id' => $item->id]) }}">
                                 <img src="{{ asset($item->image_path) }}" alt="{{ $item->title }}" class="img-fluid">
                                 <div class="artwork-title">
-                                    <strong style="font-size: 1rem; color: #2c3e50;">{{ $item->category->name }}</strong><br>
-                                    <span
-                                        style="font-weight: bold; font-size: 1.05rem; color: #9a3300;">{{ $item->title }}</span><br>
+                                    <strong
+                                        style="font-size: 1rem; color: #2c3e50;">{{ $item->category->name }}</strong><br>
+                                    @php
+                                        $now = \Carbon\Carbon::now();
+                                        $startDate = \Carbon\Carbon::parse($item->auction->start_date);
+                                        $endDate = \Carbon\Carbon::parse($item->auction->end_date);
+                                    @endphp
+                                    @if ($now->lessThan($startDate))
+                                        <span
+                                            style="font-weight: bold; font-size: 1.05rem; color: #979797;">{{ $item->title }}</span><br>
+                                    @elseif($now->between($startDate, $endDate))
+                                        <span
+                                            style="font-weight: bold; font-size: 1.05rem; color: #008425;">{{ $item->title }}</span><br>
+                                    @else
+                                        <span
+                                            style="font-weight: bold; font-size: 1.05rem; color: #9a3300;">{{ $item->title }}</span><br>
+                                    @endif
                                     {{ number_format($item->starting_price, 2) }} USD<br>
                                     @if ($item->auction)
-                                        @php
-                                            $now = \Carbon\Carbon::now();
-                                            $startDate = \Carbon\Carbon::parse($item->auction->start_date);
-                                            $endDate = \Carbon\Carbon::parse($item->auction->end_date);
-                                        @endphp
                                         <!-- Hiển thị trạng thái đấu giá -->
                                         @if ($now->lessThan($startDate))
                                             <span class="text-muted">Coming Soon In -

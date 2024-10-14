@@ -25,9 +25,9 @@
             <div class="col-md-3">
                 <h5>Contact Information</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#artists" class="text-white">Artists</a></li>
-                    <li><a href="#auctions" class="text-white">Auctions</a></li>
-                    <li><a href="#products" class="text-white">Products</a></li>
+                    <li><p href="#artists" class="text-white">tudaicomtam@gmail.com</p></li>
+                    <li><p href="#artists" class="text-white">+84 789 123 123</p></li>
+                    <li><p href="#artists" class="text-white">facebook.com/tudaicomtam</p></li>
                 </ul>
             </div>
 
@@ -35,9 +35,8 @@
             <div class="col-md-3">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#artists" class="text-white">Artists</a></li>
                     <li><a href="#auctions" class="text-white">Auctions</a></li>
-                    <li><a href="#products" class="text-white">Products</a></li>
+                    <li><a href="{{route('categoriespage')}}" class="text-white">Products</a></li>
                 </ul>
             </div>
 
@@ -47,7 +46,6 @@
                 <ul class="list-unstyled">
                     <li><a href="#" class="text-white">Privacy</a></li>
                     <li><a href="#" class="text-white">Terms</a></li>
-                    <li><a href="#" class="text-white">Cookies</a></li>
                 </ul>
             </div>
 
@@ -56,7 +54,6 @@
                 <h5>Services</h5>
                 <ul class="list-unstyled">
                     <li><a href="#" class="text-white">Contact Us</a></li>
-                    <li><a href="#" class="text-white">Help</a></li>
                 </ul>
             </div>
 

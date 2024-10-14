@@ -3,9 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Auction;
+use App\Models\Category;
 use Carbon\Carbon; // Sử dụng đúng namespace của Carbon
 use Illuminate\Http\Request;
-use App\Models\Category;
 
 class CategoriesController extends Controller
 {

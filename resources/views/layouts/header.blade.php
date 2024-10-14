@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
 
     <!-- Bootstrap and other styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,9 +45,16 @@
 
 <body>
     <header class="bg-white" style="position: relative;">
+    <header class="bg-white" style="position: relative;">
         <div class="container d-flex justify-content-between align-items-center">
             <div></div>
             <div class="text-center">
+                <h1 class="display-9" style="font-weight: 500;">
+                    <a href="{{ route('homepage') }}"
+                        style="text-decoration: none; color: inherit; font-size: inherit;">
+                        Bid Spirit
+                    </a>
+                </h1>
                 <h1 class="display-9" style="font-weight: 500;">
                     <a href="{{ route('homepage') }}"
                         style="text-decoration: none; color: inherit; font-size: inherit;">
@@ -56,13 +65,16 @@
 
 
             <div class="d-flex align-items-center">
+
+
+            <div class="d-flex align-items-center">
                 @if (Auth::check())
                     <!-- Dropdown button -->
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
                             aria-expanded="false"
                             style="border: none; background-color: transparent; box-shadow: none;">
-                            {{ Auth::user()->first_name }}
+                            {{ Auth::user()->last_name }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="userDropdown"
                             style="position: absolute; z-index: 1050; top: 100%; left: 0;">
@@ -77,6 +89,7 @@
                     </div>
                 @else
                     <!-- Nếu chưa đăng nhập -->
+                    <!-- Nếu chưa đăng nhập -->
                     <a class="nav-link" href="{{ route('login') }}">Log In</a>
                     <span class="mx-2">or</span>
                     <a class="nav-link" href="{{ route('register') }}">Register</a>
@@ -84,6 +97,7 @@
             </div>
         </div>
     </header>
+
 
 
     <!-- begin navbar -->
@@ -121,6 +135,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="{{ asset('demo/js/index.js') }}"></script>
     <script src="{{ asset('demo/js/detail.js') }}"></script>
+    <script src="{{ asset('demo/js/auctions.js') }}"></script>
     <script src="{{ asset('demo/js/auctions.js') }}"></script>
 </body>
 

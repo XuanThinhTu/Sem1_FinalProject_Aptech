@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BidController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
@@ -8,9 +12,6 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\GalleriesController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\AuctionsController;
-use App\Http\Controllers\ItemsController;
-use App\Http\Controllers\UsersController;
-
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
@@ -21,10 +22,18 @@ Route::get('/categoriespage', [CategoriesController::class, 'index'])->name('cat
 Route::get('/galleriespage', [GalleriesController::class, 'index'])->name('galleriespage');
 Route::get('/detailspage/item/{id}', [DetailsController::class, 'index'])->name('detailspage');
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route to show the payment page
+Route::post('/payment', [PaymentController::class, 'createPayment'])->name('payment');
+
+Route::get('/cart/details', [PaymentController::class, 'processDetails'])->name('process.details');
+
+Route::post('/place-bid', [BidController::class, 'placeBid'])->name('bid.placeBid');
+
+
 
 // After Login
 // Route::get('/', function () {
